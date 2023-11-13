@@ -22,7 +22,7 @@ Variables:
   target_schema_name:
     The name of the schema in which the table is located.
   drop_columns: (List)
-    List of columns to be dropped from the existing table (only required if data_retention_time >= 5 days)
+    List of columns to be dropped from the existing table (only required if data_retention_time > 1 day)
   add_columns: (Dictionary)
     Dictionary containing the name of each column to be added and the data type
     e.g. {column_name1: varchar, column_name2: number}
@@ -128,7 +128,7 @@ Variables:
 
   -- {# dry_run to validate SQL #}
   {% if dry_run %}
-    {% if retention_time|int < 1 %} 
+    {% if retention_time|int <= 1 %} 
       {% do log('The following SQL will be run:
         use role '~target.role~';
         create or replace '~source_is_transient~' table '~target.database~'.'~target_schema_name~'.'~target_table_name~' clone scratch.sandbox.'~source_table_name~';'
@@ -184,7 +184,7 @@ Variables:
     {% do run_query(clone_target_query) %}
     
     -- {# If data retention is short - clone table to replace #}
-    {% if retention_time|int < 1 %}    
+    {% if retention_time|int <= 1 %}    
       {% do log('Cloning source table SCRATCH.SANDBOX.'~source_table_name~' to '~target.database~'.'~target_schema_name~'.'~target_table_name~'.'
         , info=true) %}
       {% set clone_source_query %}

@@ -1,4 +1,5 @@
 /*
+Written by @atl-k
 This macro attempts to decode base encoded ids.
 */
 {% macro try_decode_ids(column) -%}
