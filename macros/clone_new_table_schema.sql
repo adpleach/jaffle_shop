@@ -16,11 +16,11 @@ To run use the following syntax:
 
 Variables:
   source_table_name:
-    The name of the table to be created or replaced.
+    The name of the table to be moved to production.
   target_table_name:
-    The name of the table to be created or replaced.
+    The name of the table to be replaced.
   target_schema_name:
-    The name of the schema in which the table is located.
+    The name of the schema in which the table to be replaced is located.
   drop_columns: (List)
     List of columns to be dropped from the existing table (only required if data_retention_time > 1 day)
   add_columns: (Dictionary)
