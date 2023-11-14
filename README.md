@@ -2,6 +2,9 @@
 
 `jaffle_shop` is a fictional ecommerce store. This dbt project transforms raw data from an app database into a customers and orders model ready for analytics.
 
+### Changes to the repo in this fork
+This version of the `jaffle_shop` repo is provided in support of the blog post "Managing a Dynamic dbt Project: Guard Rails, Guidelines, Gadgets" on the [Whatnot Engineering Blog](https://medium.com/whatnot-engineering). It contains macros built by the Whatnot data team to support the Whatnot dbt project. Macros are built for use with a Snowflake data warehouse.
+
 ### What is this repo?
 What this repo _is_:
 - A self-contained playground dbt project, useful for testing out scripts, and communicating some of the core dbt concepts.
